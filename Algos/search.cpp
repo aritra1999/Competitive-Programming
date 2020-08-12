@@ -44,6 +44,19 @@ void binary_search(vi v, int key){
 	cout << endl;
 }
 
+int sqrt(){
+	
+}
+
+void jump_search(vi v, int key){
+	int n = v.size();
+	int step = sqrt(n);
+
+
+
+}
+
+
 int main(){
 
 	vi v = {10, 20, 12, 23, 65, 23, 59, 98, 99, 1};
