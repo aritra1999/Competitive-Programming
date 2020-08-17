@@ -94,7 +94,8 @@ void interpolation_search(vi v, int key){
 			break;
 		}
 
-		
+
+		int pos = lo + ((double)(hi - lo) / (arr[hi] - arr[lo])) * (x - arr[lo]));  )
 		
 	}
 
