@@ -26,7 +26,10 @@ template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr
 #endif
 
 void solve() {
-
+    unsigned long long int a, b; cin >> a >> b;
+    if(b%a == 0){cout << "YES"; return;}
+    
+    cout << ((b < a*2) ? "NO" : "YES");
 }
 
 int main(){
@@ -35,7 +38,7 @@ int main(){
     cout.tie(0);
     cout << fixed;
     #ifdef INPUT  
-        freopen("a.in","r",stdin);
+        freopen("b.in","r",stdin);
         clock_t time_req; 
         cout << endl;
         
@@ -45,8 +48,8 @@ int main(){
     cin >> testCase;
 	
     while(testCase--){
-        solve();
-        cout << endl;
+	   solve();
+       cout << endl;
     }
 
     #ifdef INPUT

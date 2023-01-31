@@ -19,14 +19,27 @@ template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, 
 template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
 void dbg_out() { cerr << endl; }
 template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << ' ' << H; dbg_out(T...); }
-#ifdef INPUT
+#ifdef LOCAL
 #define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
 #else
 #define dbg(...)
 #endif
 
-void solve() {
+int lcs(string X, string Y, int m, int n ) { 
+    if (m == 0 || n == 0) 
+        return 0; 
+    if (X[m-1] == Y[n-1]) 
+        return 1 + lcs(X, Y, m-1, n-1); 
+    else
+        return max(lcs(X, Y, m, n-1), lcs(X, Y, m-1, n)); 
+} 
 
+void solve() {
+    int n; 
+    cin >> n; 
+    string a, b;  cin >> a >> b;
+    cout << lcs(a, b, n, n);
+    
 }
 
 int main(){
@@ -38,7 +51,6 @@ int main(){
         freopen("a.in","r",stdin);
         clock_t time_req; 
         cout << endl;
-        
     #endif 
 
     int testCase;

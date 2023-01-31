@@ -26,7 +26,21 @@ template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr
 #endif
 
 void solve() {
-
+    int n, q; 
+    cin >> n >> q; 
+    int sum = 0; 
+    while(n--) {
+        int t; cin >> t; 
+        sum += t;
+    }   
+    // dbg(sum);
+    while(q--) {
+        int l, r; 
+        cin >> l >> r; 
+        sum += (!((r - l)%2) ? +1 : +0);
+        // dbg(sum);
+    }
+    cout << sum;
 }
 
 int main(){
@@ -38,7 +52,6 @@ int main(){
         freopen("a.in","r",stdin);
         clock_t time_req; 
         cout << endl;
-        
     #endif 
 
     int testCase;

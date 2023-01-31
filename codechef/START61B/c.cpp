@@ -19,15 +19,14 @@ template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, 
 template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
 void dbg_out() { cerr << endl; }
 template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << ' ' << H; dbg_out(T...); }
-#ifdef INPUT
+#ifdef LOCAL
 #define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
 #else
 #define dbg(...)
 #endif
 
-void solve() {
 
-}
+const double PI=3.14159265358979323846264338327950288419716939937510582097494459230;
 
 int main(){
     std::ios_base::sync_with_stdio(false);
@@ -35,7 +34,7 @@ int main(){
     cout.tie(0);
     cout << fixed;
     #ifdef INPUT  
-        freopen("a.in","r",stdin);
+        freopen("input.txt","r",stdin);
         clock_t time_req; 
         cout << endl;
         
@@ -45,8 +44,7 @@ int main(){
     cin >> testCase;
 	
     while(testCase--){
-        solve();
-        cout << endl;
+	   
     }
 
     #ifdef INPUT
