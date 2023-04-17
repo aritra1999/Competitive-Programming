@@ -1,11 +1,5 @@
-def codechef_contest_generator(number_of_problems: int):
-    print(f"Generating {number_of_problems} problem")
+import os
 
-def codeforces_contest_generator(number_of_problems: int):
-    pass 
-
-def google_hash_code_contest_generator(number_of_problems: int):
-    pass
-
-def google_code_jam_contest_generator(number_of_problems: int): 
-    pass
+def generate_contest(contest_code, number_of_problems, contest_meta, platform):
+    BASE_PATH = f"{platform}/{contest_code}"
+    os.mkdir(BASE_PATH),

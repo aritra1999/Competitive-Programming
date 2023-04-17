@@ -1,41 +1,21 @@
-from utils.input import InputUtils
-from utils.utils import (
-    codechef_contest_generator,
-    codeforces_contest_generator,
-    google_code_jam_contest_generator,
-    google_hash_code_contest_generator,
-)
+from utils.input import menu
+from utils.utils import generate_contest
 
-function_map = {
-    "Codechef": {
-        "execute": codechef_contest_generator,
-        "path": "/",
-        "template": "template.cpp"
-    },
-    "Codeforces": {
-        "execute": codeforces_contest_generator,
-        "path": "/",
-        "template": "template.cpp"
-    },
-    "Google Hash Code": {
-        "execute": google_hash_code_contest_generator,
-        "path": "/",
-        "template": "template.cpp"
-    },
-    "Google Code Jam": {
-        "execute": google_code_jam_contest_generator,
-        "path": "/",
-        "template": "template.cpp"
-    },
+platform_meta_map = {
+    "Codechef": {"template": "template_with_test_cases.cpp"},
+    "Codeforces": {"template": "template_test_case_number_output.cpp"},
+    "Google Hash Code": {"template": "template_without_test_cases.cpp"},
+    "Google Code Jam": {"template": "template_without_test_cases.cpp"},
 }
+
 
 def main():
     try:
-        platform = InputUtils.menu(list(function_map.keys()), "Platform")
+        platform = menu(list(platform_meta_map.keys()), "Platform")
         number_of_problems = input("Number of problems? ")
-        
-        function_map[platform]["execute"](number_of_problems)
+        contest_code = input("Contest code? ")
 
+        generate_contest(contest_code, number_of_problems, platform_meta_map[platform], platform)
     except:
         print("Error executing script!")
 
