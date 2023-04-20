@@ -1,5 +1,5 @@
 from utils.input import menu
-from utils.utils import generate_contest
+from utils.contest import create_contest
 
 platform_meta_map = {
     "Codechef": {"template": "template_with_test_cases.cpp"},
@@ -15,7 +15,10 @@ def main():
         number_of_problems = input("Number of problems? ")
         contest_code = input("Contest code? ")
 
-        generate_contest(contest_code, number_of_problems, platform_meta_map[platform], platform)
+        create_contest(
+            contest_code, number_of_problems, platform_meta_map[platform], platform
+        )
+        print(f"Created contest {contest_code }")
     except:
         print("Error executing script!")
 
