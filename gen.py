@@ -12,7 +12,7 @@ platform_meta_map = {
 def main():
     try:
         platform = menu(list(platform_meta_map.keys()), "Platform")
-        number_of_problems = input("Number of problems? ")
+        number_of_problems = int(input("Number of problems? "))
         contest_code = input("Contest code? ")
 
         create_contest(

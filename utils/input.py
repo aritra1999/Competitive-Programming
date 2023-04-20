@@ -1,4 +1,4 @@
-def menu(inputFields, property: str) -> str: 
+def menu(inputFields: list[str], property: str) -> str: 
     print(f"Choose {property}")
     for index, inputField in enumerate(inputFields):
         print(f"{index + 1}: {inputField}")
